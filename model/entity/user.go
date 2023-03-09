@@ -1,6 +1,6 @@
 package entity
 
 type User struct {
-	ID    uint   `json:"id"`
-	EMail string `json:"EMail"`
+	Username string `form:"username" binding:"required" gorm:"unique; not null"`
+	Password string `form:"password" binding:"required"`
 }

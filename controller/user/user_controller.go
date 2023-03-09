@@ -7,9 +7,7 @@ import (
 	"publickey-repogitory/service/user"
 )
 
-type Controller struct{}
-
-func (pc Controller) Index(c *gin.Context) {
+func UserIndex(c *gin.Context) {
 	var s user.Service
 	p, err := s.GetAll()
 
@@ -21,7 +19,7 @@ func (pc Controller) Index(c *gin.Context) {
 	}
 }
 
-func (pc Controller) Create(c *gin.Context) {
+func UserCreate(c *gin.Context) {
 	var s user.Service
 	p, err := s.CreateModel(c)
 

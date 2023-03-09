@@ -11,6 +11,11 @@ type Service struct {
 
 type User entity.User
 
+func (s Service) CreateUser(username string, password string) (User, error) {
+	return User{}, nil
+
+}
+
 func (s Service) CreateModel(c *gin.Context) (User, error) {
 	db := db.GetDB()
 	var u User
