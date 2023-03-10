@@ -3,7 +3,7 @@ package db
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"publickey-repogitory/model/entity"
+	"github.com/natsukirigakure/publickey-repository/model/entity"
 )
 
 var (
