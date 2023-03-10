@@ -21,7 +21,7 @@ func NewUserId(id string) UserId {
 }
 
 func GeneratePasswordHash(password string) string {
-	hashed, _ := bcrypt.GenerateFromPassword([]byte(string()), 16)
+	hashed, _ := bcrypt.GenerateFromPassword([]byte(string(password)), 16)
 	return string(hashed)
 }
 

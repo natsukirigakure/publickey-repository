@@ -15,7 +15,7 @@ type ULIDGenerator struct {
 	entropy *ulid.MonotonicEntropy
 }
 
-var defaultGenerator = IdentifierGenerator
+var defaultGenerator IdentifierGenerator
 
 type IdentifierGenerator interface {
 	Generate() Identifier
