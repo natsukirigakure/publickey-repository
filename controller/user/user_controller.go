@@ -3,8 +3,8 @@ package user
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/natsukirigakure/publickey-repogitory/service/user"
 	"net/http"
-	"publickey-repogitory/service/user"
 )
 
 func UserIndex(c *gin.Context) {

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"publickey-repogitory/controller"
-	"publickey-repogitory/db"
+	"github.com/natsukirigakure/publickey-repogitory/controller"
+	"github.com/natsukirigakure/publickey-repogitory/db"
 )
 
 func main() {

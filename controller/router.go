@@ -4,9 +4,9 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"publickey-repogitory/controller/auth"
-	"publickey-repogitory/controller/common"
-	"publickey-repogitory/controller/user"
+	"github.com/natsukirigakure/publickey-repogitory/controller/auth"
+	"github.com/natsukirigakure/publickey-repogitory/controller/common"
+	"github.com/natsukirigakure/publickey-repogitory/controller/user"
 )
 
 func Router() *gin.Engine {
