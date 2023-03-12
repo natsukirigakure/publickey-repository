@@ -1,7 +1,17 @@
 package entity
 
+import (
+	"github.com/natsukirigakure/publickey-repogitory/utility"
+	"gorm.io/gorm"
+)
+
 type User struct {
-	ID       uint   `gorm:"primarykey"`
-	username string `form:"username" binding:"required" gorm:"unique; not null"`
-	password string `form:"password" binding:"required"`
+	Abstract
+	Username string `form:"username" binding:"required" gorm:"unique; not null"`
+	Password string `form:"password" binding:"required"`
+}
+
+func (u *User) BeforeCreate(tx *gorm.DB) error {
+	u.ID = utility.NewUlidString()
+	return nil
 }

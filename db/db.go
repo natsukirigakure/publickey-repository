@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"github.com/natsukirigakure/publickey-repository/model/entity"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -12,8 +13,19 @@ var (
 )
 
 func Init() {
-	dsn := postgres.Open("host=0.0.0.0 port=5432 user=gorm dbname=gorm password=gorm sslmode=disable")
-	db, err = gorm.Open(dsn)
+	dbType := "postgres"
+	dbHost := "127.0.0.1"
+	dbPort := 5432
+	dbUser := "gorm"
+	dbPass := "gorm"
+	dbName := "gorm"
+	dbSslMode := "disable"
+
+	switch dbType {
+	case "postgres":
+		dsn := postgres.Open(fmt.Sprintf("host=%s port=%d user=%s dbname=%s password=%s sslmode=%s", dbHost, dbPort, dbUser, dbName, dbPass, dbSslMode))
+		db, err = gorm.Open(dsn)
+	}
 	if err != nil {
 		panic(err)
 	}
