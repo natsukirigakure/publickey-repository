@@ -10,6 +10,4 @@ func main() {
 
 	db.Init()
 	r.Run()
-
-	db.Close()
 }

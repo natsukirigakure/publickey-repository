@@ -1,9 +1,9 @@
 package db
 
 import (
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/natsukirigakure/publickey-repository/model/entity"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 var (
@@ -12,7 +12,8 @@ var (
 )
 
 func Init() {
-	db, err = gorm.Open("postgres", "host=0.0.0.0 port=5432 user=gorm dbname=gorm password=gorm sslmode=disable")
+	dsn := postgres.Open("host=0.0.0.0 port=5432 user=gorm dbname=gorm password=gorm sslmode=disable")
+	db, err = gorm.Open(dsn)
 	if err != nil {
 		panic(err)
 	}
@@ -23,11 +24,12 @@ func GetDB() *gorm.DB {
 	return db
 }
 
-func Close() {
+/*func Close() {
+	db.Close
 	if err := db.Close(); err != nil {
 		panic(err)
 	}
-}
+}*/
 
 func autoMigration() {
 	db.AutoMigrate(&entity.User{})
