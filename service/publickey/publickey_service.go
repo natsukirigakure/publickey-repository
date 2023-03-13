@@ -2,8 +2,8 @@ package publickey
 
 import (
 	"github.com/gin-gonic/gin"
-	"publickey-repogitory/db"
-	"publickey-repogitory/model/entity"
+	"github.com/natsukirigakure/publickey-repogitory/db"
+	"github.com/natsukirigakure/publickey-repogitory/model/entity"
 )
 
 type Service struct {

@@ -21,7 +21,7 @@ func UserIndex(c *gin.Context) {
 
 func UserCreate(c *gin.Context) {
 	var s user.Service
-	p, err := s.CreateModel(c)
+	p, err := s.CreateModel("", "")
 
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)

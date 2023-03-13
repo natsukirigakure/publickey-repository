@@ -6,7 +6,7 @@ import (
 )
 
 type Abstract struct {
-	ID        string `gorm:"primarykey; size:26""`
+	ID        string `gorm:"primarykey; size:26; not null"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt `gorm:"index"`

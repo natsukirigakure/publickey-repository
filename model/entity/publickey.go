@@ -1,6 +1,6 @@
 package entity
 
 type PublicKey struct {
-	ID        uint   `json:"ID"`
+	Abstract
 	PublicKey string `json:"PublicKey"`
 }

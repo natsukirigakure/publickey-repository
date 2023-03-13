@@ -4,6 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/natsukirigakure/publickey-repogitory/db"
 	"github.com/natsukirigakure/publickey-repogitory/model/entity"
+	"github.com/natsukirigakure/publickey-repogitory/utility"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type Service struct {
@@ -11,14 +13,16 @@ type Service struct {
 
 type User entity.User
 
-func (s Service) CreateUser(username string, password string) (User, error) {
-	return User{}, nil
-
-}
-
-func (s Service) CreateModel(c *gin.Context) (User, error) {
+func (s Service) CreateModel(username string, password string) (User, error) {
 	db := db.GetDB()
-	var u User
+
+	hashed, _ := bcrypt.GenerateFromPassword([]byte(password), 10)
+
+	u := User{
+		Abstract: entity.Abstract{ID: utility.NewUlidString()},
+		Username: username,
+		Password: string(hashed),
+	}
 
 	if err := db.Create(&u).Error; err != nil {
 		return u, err
